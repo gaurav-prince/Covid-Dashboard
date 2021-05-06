@@ -10,7 +10,7 @@ export class AppComponent implements OnDestroy {
   title = 'covid-dashboard';
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({length: 5}, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav = ["Home","Vaccinations","Feed","Donate","About"];
 
   fillerContent = Array.from({length: 5}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

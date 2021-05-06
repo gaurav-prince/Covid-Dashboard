@@ -10,6 +10,7 @@
     margin-bottom: 2em;
     flex         : 0 1 calc(25% - 1em);
     margin-bottom: 2em;
+    box-shadow   : 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
 
 .card a {
@@ -35,6 +36,27 @@
     font-size: 80%;
 }
 
+.card-top {
+    margin-left : 10%;
+    margin-right: 10%;
+    margin-top  : -15px;
+}
+
+.card-top-data {
+    float     : right;
+    margin-top: 2rem;
+    text-align: right;
+}
+
+
+.card-icon {
+    border-radius: 3px;
+    box-shadow   : 0 2px 9px 0 rgb(0 0 0 / 20%), 0 2px 13px 0 rgb(0 0 0 / 19%);
+    text-align   : left;
+    margin-right : 1rem;
+    width        : 25%;
+}
+
 /* Flexbox stuff */
 
 @media screen and (max-width: 992px) {
@@ -47,8 +69,8 @@
 
     .card {
         display      : flex;
-        flex         : 0 1 calc(50% - .5em);
-        margin-bottom: 1em;
+        flex         : 0 1 calc(50% - 1em);
+        margin-bottom: 2em;
     }
 }
 
@@ -64,7 +86,7 @@
     .card {
         display      : flex;
         flex         : 0 1 95%;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
     }
 }
 

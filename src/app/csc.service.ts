@@ -13,12 +13,14 @@ export class CscService {
   constructor(private http: HttpClient) { }
 
   getStates() {
+    console.log('getStates', this.http.get(`${this.apiStateBaseUrl}`));
     return this.http.get(`${this.apiStateBaseUrl}`).pipe(
       catchError(this.handleError)
     );
   }
 
   getCities(state_id: number) {
+    console.log('getcities', this.http.get(`${this.apiCitiesBaseUrl}/${state_id}`));
     return this.http.get(`${this.apiCitiesBaseUrl}/${state_id}`).pipe(
       catchError(this.handleError)
     );

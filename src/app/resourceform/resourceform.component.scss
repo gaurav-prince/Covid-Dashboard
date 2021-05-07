@@ -5,3 +5,29 @@
 .field {
     width: 80%;
 }
+
+.heading {
+    font-size: 1.5rem;
+    padding: 5%;
+}
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+    .heading {
+        font-size: 1rem;
+        padding: 5%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+    .heading {
+        font-size: 1rem;
+        padding: 5%;
+    }
+}

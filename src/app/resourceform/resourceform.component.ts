@@ -19,7 +19,13 @@ export class ResourceformComponent implements OnInit {
   countries: {};
   states: {};
   cities: {};
-  resources: ['Oxygen Cylinder', 'Oxygen Concentrator', 'Blood Plasma', 'Hospital Bed(General)', 'Hospital Bed(ICU)']
+  resources: [
+    {id: 1, value: 'Oxygen Cylinder'}, 
+    {id: 2, value: 'Oxygen Concentrator'},
+    {id: 3, value: 'Blood Plasma'},
+    {id: 4, value: 'Hospital Bed(General)'},
+    {id: 5, value: 'Hospital Bed(ICU)'}];
+  
    ngOnInit() {
       this.formdata = new FormGroup({
          emailid: new FormControl("", Validators.compose([

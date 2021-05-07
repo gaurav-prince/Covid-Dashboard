@@ -11,6 +11,15 @@
   font-weight        : 600;
 }
 
+.header {
+ color: black
+}
+
+.header:hover {
+  color: black;
+  text-decoration: none;
+}
+
 .toolbar img {
   margin: 0 16px;
 }

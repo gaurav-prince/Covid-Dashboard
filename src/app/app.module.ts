@@ -17,13 +17,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ResourceformComponent } from './resourceform/resourceform.component';
 import {MatInputModule} from '@angular/material/input';
+import { OxygenresourceComponent } from './oxygenresource/oxygenresource.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ResourceformComponent
+    ResourceformComponent,
+    OxygenresourceComponent
   ],
   imports: [
     BrowserModule,

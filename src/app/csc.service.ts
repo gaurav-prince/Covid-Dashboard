@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators'
   providedIn: 'root'
 })
 export class CscService {
-  apiBaseUrl = 'http://localhost/dev/tcxapp/';
+  apiBaseUrl = 'https://api.countrystatecity.in/v1/countries/[ciso]/states/[siso]/cities';
 
   constructor(private http: HttpClient) { }
 

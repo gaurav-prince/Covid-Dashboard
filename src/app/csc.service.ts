@@ -9,19 +9,30 @@ import { catchError } from 'rxjs/operators';
 export class CscService {
   apiStateBaseUrl = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
   apiCitiesBaseUrl = 'https://cdn-api.co-vin.in/api/v2/admin/location/districts'
-
+  apiVaccineDistrictBaseUrl = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict'
+  apiVaccinePinBaseUrl = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin'
   constructor(private http: HttpClient) { }
 
   getStates() {
-    console.log('getStates', this.http.get(`${this.apiStateBaseUrl}`));
     return this.http.get(`${this.apiStateBaseUrl}`).pipe(
       catchError(this.handleError)
     );
   }
 
   getCities(state_id: number) {
-    console.log('getcities', this.http.get(`${this.apiCitiesBaseUrl}/${state_id}`));
     return this.http.get(`${this.apiCitiesBaseUrl}/${state_id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getVaccineByPin(pin: string, date: string) {
+    return this.http.get(`${this.apiVaccinePinBaseUrl}?pincode=${pin}&date=${date}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getVaccineByDistrict(districtId: string, date: string) {
+    return this.http.get(`${this.apiVaccineDistrictBaseUrl}?district_id=${districtId}&date=${date}`).pipe(
       catchError(this.handleError)
     );
   }

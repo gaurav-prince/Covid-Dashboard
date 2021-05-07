@@ -11,6 +11,8 @@ export class CscService {
   apiCitiesBaseUrl = 'https://cdn-api.co-vin.in/api/v2/admin/location/districts'
   apiVaccineDistrictBaseUrl = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict'
   apiVaccinePinBaseUrl = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin'
+  apiVaccineDistrictWeekBaseUrl = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict'
+  apiVaccinePinWeekBaseUrl = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin'
   constructor(private http: HttpClient) { }
 
   getStates() {
@@ -32,6 +34,18 @@ export class CscService {
   }
 
   getVaccineByDistrict(districtId: string, date: string) {
+    return this.http.get(`${this.apiVaccineDistrictBaseUrl}?district_id=${districtId}&date=${date}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getVaccineByPinWeek(pin: string, date: string) {
+    return this.http.get(`${this.apiVaccinePinBaseUrl}?pincode=${pin}&date=${date}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getVaccineByDistrictWeek(districtId: string, date: string) {
     return this.http.get(`${this.apiVaccineDistrictBaseUrl}?district_id=${districtId}&date=${date}`).pipe(
       catchError(this.handleError)
     );

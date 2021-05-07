@@ -47,16 +47,29 @@ export class VaccinationComponent implements OnInit {
 
 
   onSubmitWithPin() {
-    console.log(typeof(this.pincode), this.dateString);
     this.cscService.getVaccineByPin(this.pincode, this.dateString).subscribe(
-      data => console.log(data)//this.vaccineSessions = data
+      data => this.vaccineSessions = data
     );
     this.loaded = true;
   }
 
   onSubmitDistrict() {
     this.cscService.getVaccineByDistrict(this.cityId, this.dateString).subscribe(
-      data => console.log(data)//this.vaccineSessions = data
+      data => this.vaccineSessions = data
+    );
+    this.loaded = true;
+  }
+
+  onSubmitWithPinWeek() {
+    this.cscService.getVaccineByPinWeek(this.pincode, this.dateString).subscribe(
+      data => this.vaccineSessions = data
+    );
+    this.loaded = true;
+  }
+
+  onSubmitDistrictWeek() {
+    this.cscService.getVaccineByDistrictWeek(this.cityId, this.dateString).subscribe(
+      data => this.vaccineSessions = data
     );
     this.loaded = true;
   }

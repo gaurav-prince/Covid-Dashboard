@@ -27,6 +27,15 @@ table {
     padding-top: 3%;
 }
 
+.available{
+    color: green;
+    font-weight: bold;
+}
+
+.notAvailable{
+    color: red;
+    font-weight: bold;
+}
 
 @media screen and (max-width: 600px) {
     .heading {

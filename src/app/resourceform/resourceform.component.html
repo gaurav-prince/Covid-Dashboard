@@ -1,0 +1,66 @@
+<div class="container">
+    <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+        <!-- <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" class="form-control"/> -->
+            <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div> -->
+        <!-- </div> -->
+
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Enter your Name">
+        </mat-form-field>
+        <!-- dropdown for resources here -->
+        <!-- <div class="form-group"> -->
+        <mat-form-field appearance="fill">
+            <mat-label>Select Resource</mat-label>
+            <mat-select>
+            <mat-option *ngFor="let resource of resources" [value]="resource">{{resource}}</mat-option>
+            <!-- <mat-option value="two">Oxygen Concentrator</mat-option>
+            <mat-option value="two">Hospital Bed(General)</mat-option>
+            <mat-option value="two">Hospital Bed(ICU)</mat-option>
+            <mat-option value="two">Blood Plasma</mat-option> -->
+            </mat-select>
+        </mat-form-field>
+            <!-- <label for="resource">Resource</label>
+            <input type="text" formControlName="resource" class="form-control"/> -->
+            <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div> -->
+        <!-- </div> -->
+        <div class="form-group">
+            <label for="mobile">Mobile number</label>
+            <input type="text" formControlName="mobile" class="form-control"/>
+            <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div> -->
+        </div>
+
+        <!-- dropdown for city state here -->
+        <div class="form-group">
+        <select formControlName="country" class="form-control" (change)="onChangeCountry($event.target.value)">
+            <option value="">Select country...</option>
+            <option *ngFor="let country of countries" [value]="country.id">{{country.country_name}}</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <select formControlName="state" class="form-control" (change)="onChangeState($event.target.value)">
+                <option value="">Select state...</option>
+                <option *ngFor="let state of states" [value]="state.id">{{state.state_name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select formControlName="city" class="form-control">
+                <option value="">Select city...</option>
+                <option *ngFor="let city of cities" [value]="city.id">{{city.city_name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Register</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+ </div>

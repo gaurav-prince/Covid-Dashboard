@@ -12,4 +12,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  oxygen_count = 0;
+  plasma_count = 0;
+  vaccine_count = 0;
 }

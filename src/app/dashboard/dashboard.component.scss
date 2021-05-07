@@ -4,6 +4,15 @@
     margin-top     : inherit;
 }
 
+.heading {
+    margin: 1%;
+    margin-bottom: 2%;
+    margin-top: -2%;
+    padding: 3%;
+    background   : white;
+    font-size: 2rem;
+    box-shadow   : 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
 
 .card {
     background   : white;
@@ -51,10 +60,23 @@
 
 .card-icon {
     border-radius: 3px;
-    box-shadow   : 0 2px 9px 0 rgb(0 0 0 / 20%), 0 2px 13px 0 rgb(0 0 0 / 19%);
     text-align   : left;
     margin-right : 1rem;
     width        : 25%;
+    margin-top: 10%;
+}
+
+.info {
+    text-align: center;
+    font-size: 1.5rem;
+}
+.link {
+    color: #a71622;
+}
+a:hover {
+    color        : #1655a7;
+    -webkit-transition: all 0.25s ease-in;
+    transition        : all 0.25s ease-in;
 }
 
 /* Flexbox stuff */
@@ -87,6 +109,16 @@
         display      : flex;
         flex         : 0 1 95%;
         margin-bottom: 2em;
+    }
+    
+    .heading {
+        margin-bottom: 8%;
+        margin-left: 3%;
+        margin-right: 8%;
+        padding: 3%;
+        // background   : white;
+        font-size: 1rem;
+        box-shadow   : 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
     }
 }
 

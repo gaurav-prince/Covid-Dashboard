@@ -11,7 +11,7 @@
     <mat-sidenav #snav class="example-sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav" class="navItem">{{nav}}</a>
+        <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav" class="navItem">{{nav.title}}</a>
       </mat-nav-list>
     </mat-sidenav>
 

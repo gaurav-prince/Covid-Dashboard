@@ -21,7 +21,7 @@ export class AppComponent implements OnDestroy {
     route: "/"
   }, {
     title: "Donate",
-    route: "/"
+    route: "./donate"
   }, {
     title: "About",
     route: "/"

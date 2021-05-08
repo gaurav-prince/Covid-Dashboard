@@ -65,6 +65,7 @@ export class CscService {
         object.to = data[i].to;
         object.fee_type = data[i].fee_type;
         object.date = data[i].sessions[j].date;
+        object.min_age_limit = data[i].sessions[j].min_age_limit;
         object.available_capacity = data[i].sessions[j].available_capacity;
         if (data[i].vaccine_fees) {
           for(let k = 0; k < data[i].vaccine_fees.length; k++ ) {

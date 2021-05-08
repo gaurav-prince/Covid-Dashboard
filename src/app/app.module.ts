@@ -12,6 +12,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatSortModule} from '@angular/material/sort';
+
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule} from '@angular/cdk/table';
 import { AppComponent } from './app.component';
@@ -52,7 +54,8 @@ import { VaccinationComponent } from './vaccination/vaccination.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    MatSortModule
   ],
   providers: [MatDatepickerModule, DatePipe],
   bootstrap: [AppComponent]

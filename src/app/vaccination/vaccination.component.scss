@@ -41,6 +41,14 @@ th.mat-sort-header-sorted {
     color: black;
 }
 
+.table-box{
+    box-shadow: 2px 2px 5px #888 !important;
+}
+.table-box table{
+    border: 1px solid #aaa;
+    margin-bottom: 2rem;
+}
+
 @media screen and (max-width: 600px) {
     .heading {
         font-size: 1rem;

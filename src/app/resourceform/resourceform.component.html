@@ -2,26 +2,28 @@
     <div class="form-heading">
         <p>Please fill this form to update the details.</p>
     </div>
-    <form >
+    <form>
         <div class="form-group">
             <mat-form-field appearance="fill" class="field">
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Enter your Name">
+                <input matInput placeholder="Enter your Name" [(ngModel)]="feedPostData.name" name="name">
             </mat-form-field>
         </div>
         <!-- dropdown for resources here -->
         <div class="form-group">
             <mat-form-field appearance="fill" class="field">
                 <mat-label>Select Resource</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let resource of resources" [value]="resource.id">{{ resource.value }}</mat-option>
+                <mat-select [(ngModel)]="feedPostData.resourceType" name="resourceType">
+                    <mat-option *ngFor="let resource of resources" [value]="resource.id">{{ resource.value }}
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="form-group">
             <mat-form-field appearance="fill" class="field">
                 <mat-label>Mobile number</mat-label>
-                <input matInput placeholder="Enter your Mobile Number"  [formControl]="phoneFormControl">
+                <input matInput placeholder="Enter your Mobile Number" [(ngModel)]="feedPostData.phone" name="phone">
+                    <!-- [formControl]="phoneFormControl"> -->
             </mat-form-field>
             <mat-error *ngIf="phoneFormControl.hasError('pattern') || !phoneFormControl.hasError('minLength')">
                 Please enter a valid phone number
@@ -30,23 +32,37 @@
         <div class="form-group">
             <mat-form-field appearance="fill" class="field">
                 <mat-label>Select State</mat-label>
-                <mat-select (selectionChange)="onChangeState($event.value)">
-                    <mat-option *ngFor="let state of states.states" [value]="state.state_id">{{state.state_name}}</mat-option>
+                <mat-select (selectionChange)="onChangeState($event.value)" name="state"
+                    [(ngModel)]="feedPostData.state">
+                    <mat-option *ngFor="let state of states.states" [value]="state.state_id">{{state.state_name}}
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="form-group">
             <mat-form-field appearance="fill" class="field">
                 <mat-label>Select City</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let city of cities.districts" [value]="city.district_id">{{city.district_name}}</mat-option>
+                <mat-select [(ngModel)]="feedPostData.district" name="district">
+                    <mat-option *ngFor="let city of cities.districts" [value]="city.district_id">{{city.district_name}}
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="form-group">
-            <button mat-raised-button [disabled]="loading" class="btn btn-primary">Submit Details</button>
-            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <div class="form-group" *ngIf="!submitted">
+            <button mat-raised-button [disabled]="loading" class="btn btn-primary" (click)="onSubmit()">Submit
+                Details</button>
+            <img *ngIf="loading"
+                src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
             <a [routerLink]="['']" class="btn btn-link">Cancel</a>
         </div>
+        <div class="form-group" *ngIf="submitted">
+            <div class="confirm-msg">
+                Your info saved successfully.
+            </div>
+            <div class="link-msg">
+                Click <a routerLink="/" class="link">here</a> to view other resources and requirements.<br/>
+                Click <a (click)="onReload()" class="link">here</a> to make a new entry
+            </div>
+        </div>
     </form>
- </div>
+</div>

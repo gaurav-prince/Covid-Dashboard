@@ -7,10 +7,15 @@
 }
 
 .form-heading {
-    font-size: 1.5rem;
-    padding: 5%;
+    font-size:  1.5rem;
+    padding-bottom: 5%;
 }
 
+.confirm-msg{
+    font-size:  1.3rem;
+    color: green;
+    padding-bottom: 2%;
+}
 
 @media screen and (max-width: 600px) {
     .container {

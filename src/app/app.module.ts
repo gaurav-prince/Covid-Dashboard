@@ -25,6 +25,7 @@ import { ResourceformComponent } from './resourceform/resourceform.component';
 import {MatInputModule} from '@angular/material/input';
 import { OxygenresourceComponent } from './oxygenresource/oxygenresource.component';
 import { VaccinationComponent } from './vaccination/vaccination.component';
+import { DonationComponent } from './donation/donation.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { VaccinationComponent } from './vaccination/vaccination.component';
     DashboardComponent,
     ResourceformComponent,
     OxygenresourceComponent,
-    VaccinationComponent
+    VaccinationComponent,
+    DonationComponent
   ],
   imports: [
     BrowserModule,

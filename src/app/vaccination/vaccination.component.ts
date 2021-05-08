@@ -17,6 +17,9 @@ export class VaccinationComponent implements OnInit {
   vaccineSessions: any = {
     sessions: []
   };
+  vaccineCentres: any = {
+    centers: []
+  };
   dateString: string = '';
   pincode;
   cityId = '';
@@ -75,8 +78,10 @@ export class VaccinationComponent implements OnInit {
   onSubmitWithPinWeek() {
     this.cscService.getVaccineByPinWeek(this.pincode, this.dateString).subscribe(
       data => {
-        this.vaccineSessions = data;
-        this.dataSource = this.vaccineSessions.sessions;
+        this.vaccineCentres = data;
+        console.log('data is ',data);
+        console.log('centres data is ',this.vaccineCentres.centers);
+        this.dataSource = this.cscService.convertResponsetoFormat(this.vaccineCentres.centers);
       }
     );
     this.loaded = true;
@@ -85,8 +90,9 @@ export class VaccinationComponent implements OnInit {
   onSubmitDistrictWeek() {
     this.cscService.getVaccineByDistrictWeek(this.cityId, this.dateString).subscribe(
       data => {
-        this.vaccineSessions = data;
-        this.dataSource = this.vaccineSessions.sessions;
+        this.vaccineCentres = data;
+        console.log(this.vaccineCentres.centers);
+        this.dataSource = this.cscService.convertResponsetoFormat(this.vaccineCentres.centers);
       }
     );
     this.loaded = true;
